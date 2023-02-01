@@ -1,27 +1,37 @@
-class AbstractManager {
-  constructor({ table }) {
-    this.table = table;
-  }
+const connection = require("../config/db");
 
-  find(id) {
-    return this.connection.query(`select * from  ${this.table} where id = ?`, [
-      id,
-    ]);
-  }
+const create = (nomAnimal, typeAnimal, ageAnimal, zoo) => {
+  return connection.query(
+    "INSERT INTO animal (nomAnimal, typeAnimal, ageAnimal, zoo_idZoo) VALUES (?,?,?,?)",
+    [nomAnimal, typeAnimal, ageAnimal, zoo]
+  );
+};
 
-  findAll() {
-    return this.connection.query(`select * from  ${this.table}`);
-  }
+// read
+const findAll = () => {
+  return connection.query("SELECT * FROM  animal;");
+};
 
-  delete(id) {
-    return this.connection.query(`delete from ${this.table} where id = ?`, [
-      id,
-    ]);
-  }
+const findById = (id) => {
+  return connection.query("SELECT * FROM animal WHERE IdAnimaux =?", [id]);
+};
 
-  setConnection(connection) {
-    this.connection = connection;
-  }
-}
+const update = (nomAnimal, typeAnimal, ageAnimal, zoo, veterinaire, id) => {
+  return connection.query(
+    `UPDATE animal SET nomAnimal=?, typeAnimal=?, ageAnimal=?, zoo_idZoo=?, veterinaire_idVeterinaire=?  WHERE idAnimaux=?`,
+    [nomAnimal, typeAnimal, ageAnimal, zoo, veterinaire, id]
+  );
+};
 
-module.exports = AbstractManager;
+// delete
+const destroy = (id) => {
+  return connection.query("DELETE FROM animal WHERE idAnimaux=?", [id]);
+};
+
+module.exports = {
+  create,
+  findAll,
+  findById,
+  update,
+  destroy,
+};
