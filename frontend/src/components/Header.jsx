@@ -10,7 +10,7 @@ function Header() {
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/animaux">Animaux</NavLink>
+          <NavLink to="/zoo">Zoo</NavLink>
         </li>
         <li>
           <NavLink to="/gestion">Gestion</NavLink>

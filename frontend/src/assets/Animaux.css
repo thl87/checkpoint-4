@@ -1,0 +1,9 @@
+.animalContainer {
+  width: 95%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  border: solid;
+  padding: 5px;
+}

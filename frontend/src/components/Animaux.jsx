@@ -1,36 +1,40 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+// import { NavLink } from "react-router-dom";
+import axios from "axios";
+
+import "../assets/Animaux.css";
 import Header from "./Header";
 import CarteAnimal from "./CarteAnimal";
 
 function Animaux() {
-  const animaux = [
-    {
-      nom: "Animal 1",
-      espece: "Ours",
-      age: 4,
-      localisation: "zoo 1",
-    },
+  const [animaux, setAnimaux] = useState([]);
 
-    {
-      nom: "Animal 2",
-      espece: "Otarie",
-      age: 2,
-      localisation: "zoo 2",
-    },
-  ];
+  const getAnimal = () => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/animal/`)
+      .then((res) => {
+        // console.log(res.data);
+        setAnimaux(res.data);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    getAnimal();
+  }, []);
+
   return (
     <div>
       <Header />
-      <NavLink to="/">Retour</NavLink>
+      {/* <NavLink to="/">Retour</NavLink> */}
       Animaux
-      <div>
+      <div className="animalContainer">
         {animaux.map((a) => (
           <CarteAnimal
-            nom={a.nom}
-            espece={a.espece}
-            age={a.age}
-            localisation={a.localisation}
+            nom={a.nomAnimal}
+            espece={a.typeAnimal}
+            age={a.ageAnimal}
+            localisation={a.zoo_idZoo}
           />
         ))}
       </div>

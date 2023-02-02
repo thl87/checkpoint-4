@@ -5,8 +5,7 @@ import "../assets/CarteAnimal.css";
 function CarteAnimal({ nom, espece, age, localisation }) {
   return (
     <div className="carteAnimal">
-      carte animal
-      <div className="nomAnimal">Nom :{nom}</div>
+      <div className="nomAnimal">Nom : {nom}</div>
       <div className="espece">Espèce : {espece}</div>
       <div className="age">Age : {age} ans</div>
       <div className="localisation">Localisation : {localisation}</div>
