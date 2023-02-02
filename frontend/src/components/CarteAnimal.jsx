@@ -23,6 +23,7 @@ function CarteAnimal({
       <div className="age">Age : {age} ans</div>
       <div className="localisation">Localisation : {localisation}</div>
       <div className="transfert">Transférer </div>
+      <div className="identifiant">Identifiant : {idAnimaux}</div>
     </div>
   );
 }

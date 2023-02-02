@@ -7,7 +7,7 @@ function Header() {
     <header className="header">
       <ul className="menu">
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">Accueil</NavLink>
         </li>
         <li>
           <NavLink to="/zoo">Zoo</NavLink>

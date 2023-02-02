@@ -10,6 +10,8 @@ function Gestion({ animaux, getAnimal }) {
   const [ageAnimal, setAgeAnimal] = useState("");
   const [zoo, setZoo] = useState("");
   const [selectedId, setSelectedId] = useState();
+  const [showMessage, setShowMessage] = useState(false);
+  const [showMessageSuppression, setShowMessageSuppression] = useState(false);
 
   const getNewAnimal = () => {
     axios
@@ -24,6 +26,8 @@ function Gestion({ animaux, getAnimal }) {
     setTypeAnimal("");
     setAgeAnimal("");
     setZoo("");
+    setShowMessage(true);
+    setTimeout(() => setShowMessage(false), 3000);
   };
 
   const deleteAnimal = () => {
@@ -31,10 +35,12 @@ function Gestion({ animaux, getAnimal }) {
     axios
       .delete(`${import.meta.env.VITE_BACKEND_URL}/api/animal/${id}`)
       .then(() => getAnimal());
+    setShowMessageSuppression(true);
+    setTimeout(() => setShowMessageSuppression(false), 3000);
   };
 
   return (
-    <div>
+    <div className="gestion">
       <form className="ajoutAnimal">
         Ajout d'un animal
         <input
@@ -70,6 +76,7 @@ function Gestion({ animaux, getAnimal }) {
           onChange={(e) => setZoo(e.target.value)}
         />
       </form>
+      {showMessage ? <div className="messageAjout">Animal ajouté</div> : null}
       <button className="ajoutButton" type="button" onClick={getNewAnimal}>
         Ajouter l'animal
       </button>
@@ -83,8 +90,11 @@ function Gestion({ animaux, getAnimal }) {
         type="button"
         onClick={deleteAnimal}
       >
-        Supprimer l'animal
+        Supprimer l'animal n° {selectedId}
       </button>
+      {showMessageSuppression ? (
+        <div className="messageSupression">Animal n° {selectedId} supprimé</div>
+      ) : null}
     </div>
   );
 }

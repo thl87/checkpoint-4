@@ -1,5 +1,4 @@
 import React from "react";
-// import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import "../assets/Animaux.css";
@@ -9,7 +8,6 @@ import SearchBar from "./SearchBar";
 function Animaux({ animaux, setSelectedId }) {
   return (
     <div>
-      {/* <NavLink to="/">Retour</NavLink> */}
       Animaux
       <SearchBar />
       <div className="animalContainer">
