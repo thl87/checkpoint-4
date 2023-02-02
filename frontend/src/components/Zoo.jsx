@@ -27,7 +27,7 @@ function Zoo() {
       Zoo
       <div className="zooContainer">
         {zoo.map((z) => (
-          <CarteZoo nom={z.nomZoo} nbAnimaux={z.nbAnimaux} />
+          <CarteZoo key={z.idZoo} nom={z.nomZoo} nbAnimaux={z.nbAnimaux} />
         ))}
       </div>
     </div>

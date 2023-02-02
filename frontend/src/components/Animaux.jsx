@@ -5,6 +5,7 @@ import axios from "axios";
 import "../assets/Animaux.css";
 import Header from "./Header";
 import CarteAnimal from "./CarteAnimal";
+import SearchBar from "./SearchBar";
 
 function Animaux() {
   const [animaux, setAnimaux] = useState([]);
@@ -28,9 +29,11 @@ function Animaux() {
       <Header />
       {/* <NavLink to="/">Retour</NavLink> */}
       Animaux
+      <SearchBar />
       <div className="animalContainer">
         {animaux.map((a) => (
           <CarteAnimal
+            key={a.idAnimaux}
             nom={a.nomAnimal}
             espece={a.typeAnimal}
             age={a.ageAnimal}

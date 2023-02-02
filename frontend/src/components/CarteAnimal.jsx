@@ -18,7 +18,7 @@ CarteAnimal.propTypes = {
   nom: PropTypes.string.isRequired,
   age: PropTypes.number.isRequired,
   espece: PropTypes.string.isRequired,
-  localisation: PropTypes.string.isRequired,
+  localisation: PropTypes.number.isRequired,
 };
 
 export default CarteAnimal;
