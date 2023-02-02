@@ -1,0 +1,23 @@
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+  height: 5rem;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+@media screen and (width < 600px) {
+  .menu {
+    height: 2rem;
+  }
+  .menu a {
+    font-size: 1rem;
+  }
+}

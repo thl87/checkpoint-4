@@ -2,11 +2,11 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
-const router = require("./router");
+const animalRoute = require("./routes/animalRoute");
+const zooRoute = require("./routes/zooRoute");
 
 const app = express();
 
-// use some application-level middlewares
 app.use(
   cors({
     origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
@@ -23,7 +23,8 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.static(path.join(__dirname, "..", "..", "frontend", "dist")));
 
 // API routes
-app.use(router);
+app.use("/api/animal", animalRoute);
+app.use("/api/zoo", zooRoute);
 
 // Redirect all requests to the REACT app
 const reactIndexFile = path.join(

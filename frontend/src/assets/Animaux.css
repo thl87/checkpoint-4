@@ -1,0 +1,17 @@
+.animalContainer {
+  width: 95%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  border: solid;
+  padding: 2px;
+}
+
+@media screen and (width < 600px) {
+  .animalContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
