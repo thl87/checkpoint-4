@@ -62,7 +62,7 @@ function Gestion({ animaux, getAnimal }) {
         <input
           type="text"
           className="inputAge"
-          placeholder="Âge de l'animal"
+          placeholder="Âge de l'animal (en chiffres)"
           name="age"
           value={ageAnimal}
           onChange={(e) => setAgeAnimal(e.target.value)}
@@ -70,7 +70,7 @@ function Gestion({ animaux, getAnimal }) {
         <input
           type="text"
           className="inputZoo"
-          placeholder="Localisation"
+          placeholder="Localisation (n° du zoo)"
           name="zoo"
           value={zoo}
           onChange={(e) => setZoo(e.target.value)}

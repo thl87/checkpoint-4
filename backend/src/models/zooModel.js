@@ -7,7 +7,6 @@ const create = (nomZoo, nbAnimaux) => {
   ]);
 };
 
-// read
 const findAll = () => {
   return connection.query("SELECT * FROM zoo;");
 };
@@ -23,7 +22,6 @@ const update = (nomZoo, nbAnimaux, id) => {
   );
 };
 
-// delete
 const destroy = (id) => {
   return connection.query("DELETE FROM zoo WHERE idZoo=?", [id]);
 };

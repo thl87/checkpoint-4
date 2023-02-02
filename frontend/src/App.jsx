@@ -7,14 +7,10 @@ import Zoo from "@components/Zoo";
 import Gestion from "@components/Gestion";
 import Header from "@components/Header";
 import CarteAnimal from "@components/CarteAnimal";
-// import Home from "./pages/Home";
 
 function App() {
   const [animaux, setAnimaux] = useState([]);
-  // const [selected, setSelected] = useState(null);
-  // const handleSelected = () => {
-  //   setSelected(id);
-  // };
+
   const getAnimal = () => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/animal/`)

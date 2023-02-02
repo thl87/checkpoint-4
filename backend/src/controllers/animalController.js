@@ -1,6 +1,5 @@
 const animalModel = require("../models/AbstractManager");
 
-// create
 const createAnimal = (req, res) => {
   const { nomAnimal, typeAnimal, ageAnimal, zoo, id } = req.body;
 
@@ -15,7 +14,6 @@ const createAnimal = (req, res) => {
     });
 };
 
-// read
 const getAllAnimals = (req, res) => {
   animalModel
     .findAll()

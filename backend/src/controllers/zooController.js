@@ -1,6 +1,5 @@
 const zooModel = require("../models/zooModel");
 
-// create
 const createZoo = (req, res) => {
   const { nomZoo, nbAnimaux } = req.body;
 
@@ -15,7 +14,6 @@ const createZoo = (req, res) => {
     });
 };
 
-// read
 const getAllZoos = (req, res) => {
   zooModel
     .findAll()

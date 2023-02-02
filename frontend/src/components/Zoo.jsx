@@ -10,7 +10,6 @@ function Zoo() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/zoo/`)
       .then((res) => {
-        // console.log(res.data);
         setZoo(res.data);
       })
       .catch((err) => console.error(err));
