@@ -1,14 +1,12 @@
 // import Animaux from "@components/Animaux";
-import Animaux from "@components/Animaux";
-import Zoo from "../components/Zoo";
-import Gestion from "../components/Gestion";
+import React from "react";
 
 export default function Home() {
   return (
     <div>
-      <Animaux />
-      <Zoo />
-      <Gestion />
+      {/* //   <Animaux animaux={animaux} />
+    //   <Zoo />
+    //   <Gestion /> */}
     </div>
   );
 }

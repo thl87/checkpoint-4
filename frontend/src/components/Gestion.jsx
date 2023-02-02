@@ -1,37 +1,32 @@
 import React, { useState } from "react";
 import "../assets/Gestion.css";
 import axios from "axios";
-import Header from "./Header";
-// import SearchBar from "./SearchBar";
-// import Animaux from "./Animaux";
+import PropTypes from "prop-types";
+import Animaux from "./Animaux";
 
-function Gestion() {
+function Gestion({ animaux, getAnimal }) {
   const [nomAnimal, setNomAnimal] = useState("");
   const [typeAnimal, setTypeAnimal] = useState("");
   const [ageAnimal, setAgeAnimal] = useState("");
   const [zoo, setZoo] = useState("");
 
-  const getNewAnimal = (e) => {
-    e.preventDefault();
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/animal/`, {
-      nomAnimal,
-      typeAnimal,
-      ageAnimal,
-      zoo,
-    });
+  const getNewAnimal = () => {
+    axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/animal/`, {
+        nomAnimal,
+        typeAnimal,
+        ageAnimal,
+        zoo,
+      })
+      .then(() => getAnimal());
     setNomAnimal("");
     setTypeAnimal("");
     setAgeAnimal("");
     setZoo("");
   };
 
-  //   useEffect(() => {
-  //     getNewAnimal();
-  //   }, []);
-
   return (
     <div>
-      <Header />
       <form className="ajoutAnimal">
         Ajout d'un animal
         <input
@@ -67,11 +62,24 @@ function Gestion() {
           onChange={(e) => setZoo(e.target.value)}
         />
       </form>
-      <button type="button" onClick={getNewAnimal}>
+      <button className="ajoutButton" type="button" onClick={getNewAnimal}>
         Ajouter l'animal
+      </button>
+      <Animaux animaux={animaux} getAnimal={getAnimal} />
+      <button
+        className="suppressionButton"
+        type="button"
+        // onClick={getNewAnimal}
+      >
+        Supprimer l'animal
       </button>
     </div>
   );
 }
+
+Gestion.propTypes = {
+  animaux: PropTypes.node.isRequired,
+  getAnimal: PropTypes.func.isRequired,
+};
 
 export default Gestion;

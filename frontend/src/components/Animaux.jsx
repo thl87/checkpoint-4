@@ -1,48 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // import { NavLink } from "react-router-dom";
-import axios from "axios";
+import PropTypes from "prop-types";
 
 import "../assets/Animaux.css";
-import Header from "./Header";
 import CarteAnimal from "./CarteAnimal";
 import SearchBar from "./SearchBar";
 
-function Animaux() {
-  const [animaux, setAnimaux] = useState([]);
-
-  const getAnimal = () => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/animal/`)
-      .then((res) => {
-        // console.log(res.data);
-        setAnimaux(res.data);
-      })
-      .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {
-    getAnimal();
-  }, []);
-
+function Animaux({ animaux }) {
   return (
     <div>
-      <Header />
       {/* <NavLink to="/">Retour</NavLink> */}
       Animaux
       <SearchBar />
       <div className="animalContainer">
-        {animaux.map((a) => (
-          <CarteAnimal
-            key={a.idAnimaux}
-            nom={a.nomAnimal}
-            espece={a.typeAnimal}
-            age={a.ageAnimal}
-            localisation={a.zoo_idZoo}
-          />
-        ))}
+        {animaux &&
+          animaux.map((a) => (
+            <CarteAnimal
+              key={a.idAnimaux}
+              nom={a.nomAnimal}
+              espece={a.typeAnimal}
+              age={a.ageAnimal}
+              localisation={a.zoo_idZoo}
+            />
+          ))}
       </div>
     </div>
   );
 }
+
+Animaux.propTypes = {
+  animaux: PropTypes.node.isRequired,
+};
 
 export default Animaux;

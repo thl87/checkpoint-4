@@ -1,3 +1,11 @@
 .carteAnimal {
   border: solid;
 }
+
+.carteAnimal:hover {
+  background-color: grey;
+}
+
+.carteAnimal:active {
+  scale: 1.01;
+}

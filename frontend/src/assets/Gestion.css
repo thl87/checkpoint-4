@@ -3,4 +3,10 @@
   flex-direction: column;
   width: 50%;
   margin: 0 auto;
+  gap: 3px;
+}
+
+button {
+  width: 10rem;
+  font-size: 15px;
 }

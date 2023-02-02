@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Header from "./Header";
 import CarteZoo from "./CarteZoo";
 import "../assets/Zoo.css";
 
@@ -23,7 +22,6 @@ function Zoo() {
 
   return (
     <div>
-      <Header />
       Zoo
       <div className="zooContainer">
         {zoo.map((z) => (
