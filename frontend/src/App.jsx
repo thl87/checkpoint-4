@@ -11,7 +11,10 @@ import CarteAnimal from "@components/CarteAnimal";
 
 function App() {
   const [animaux, setAnimaux] = useState([]);
-
+  // const [selected, setSelected] = useState(null);
+  // const handleSelected = () => {
+  //   setSelected(id);
+  // };
   const getAnimal = () => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/animal/`)

@@ -91,4 +91,9 @@ insert into
         ageAnimal,
         zoo_idZoo
     )
-values ('Test', 'test', 10, 1), ('Test2', 'test2', 12, 2);
+values (
+        'Jean-pascal',
+        'Porc-épic',
+        10,
+        1
+    ), ('Patrick', 'Otarie', 12, 2), ('John', 'Singe', 7, 1), ('Pascaline', 'Singe', 5, 2), ('Odette', 'Tapir', 2, 1), ('Jeannot', 'Otarie', 12, 2), ('Antonin', 'Licorne', 120, 2);

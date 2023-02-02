@@ -9,3 +9,7 @@
 .carteAnimal:active {
   scale: 1.01;
 }
+
+.carteAnimalSelected {
+  background-color: red;
+}

@@ -6,7 +6,7 @@ import "../assets/Animaux.css";
 import CarteAnimal from "./CarteAnimal";
 import SearchBar from "./SearchBar";
 
-function Animaux({ animaux }) {
+function Animaux({ animaux, setSelectedId }) {
   return (
     <div>
       {/* <NavLink to="/">Retour</NavLink> */}
@@ -21,6 +21,8 @@ function Animaux({ animaux }) {
               espece={a.typeAnimal}
               age={a.ageAnimal}
               localisation={a.zoo_idZoo}
+              setSelected={setSelectedId}
+              idAnimaux={a.idAnimaux}
             />
           ))}
       </div>
@@ -30,6 +32,7 @@ function Animaux({ animaux }) {
 
 Animaux.propTypes = {
   animaux: PropTypes.node.isRequired,
+  setSelectedId: PropTypes.func.isRequired,
 };
 
 export default Animaux;

@@ -9,6 +9,7 @@ function Gestion({ animaux, getAnimal }) {
   const [typeAnimal, setTypeAnimal] = useState("");
   const [ageAnimal, setAgeAnimal] = useState("");
   const [zoo, setZoo] = useState("");
+  const [selectedId, setSelectedId] = useState();
 
   const getNewAnimal = () => {
     axios
@@ -23,6 +24,13 @@ function Gestion({ animaux, getAnimal }) {
     setTypeAnimal("");
     setAgeAnimal("");
     setZoo("");
+  };
+
+  const deleteAnimal = () => {
+    const id = selectedId;
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/animal/${id}`)
+      .then(() => getAnimal());
   };
 
   return (
@@ -65,11 +73,15 @@ function Gestion({ animaux, getAnimal }) {
       <button className="ajoutButton" type="button" onClick={getNewAnimal}>
         Ajouter l'animal
       </button>
-      <Animaux animaux={animaux} getAnimal={getAnimal} />
+      <Animaux
+        animaux={animaux}
+        getAnimal={getAnimal}
+        setSelectedId={setSelectedId}
+      />
       <button
         className="suppressionButton"
         type="button"
-        // onClick={getNewAnimal}
+        onClick={deleteAnimal}
       >
         Supprimer l'animal
       </button>
